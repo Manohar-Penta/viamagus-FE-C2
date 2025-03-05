@@ -17,6 +17,9 @@ function Create() {
 
   return (
     <div className="h-screen flex flex-col justify-center">
+      <h1 className="text-xl text-center font-semibold lg:font-bold lg:text-2xl border-b p-1 lg:p-3 absolute top-0 w-full shadow-lg">
+        Create Post
+      </h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();

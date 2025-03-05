@@ -16,6 +16,9 @@ function Post() {
   }, []);
   return (
     <div className="min-h-screen flex flex-col justify-center gap-10 items-center">
+      <h1 className="text-xl text-center font-semibold lg:font-bold lg:text-2xl border-b p-1 lg:p-3 absolute top-0 w-full shadow-lg">
+        Post {id}
+      </h1>
       {!data && <p className="font-xl text-xl">Loading...</p>}
       {data && (
         <div className="border p-4 max-w-[600px] flex flex-col gap-2 shadow-xl w-[90%]">
