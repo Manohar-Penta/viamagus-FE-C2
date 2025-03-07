@@ -29,7 +29,7 @@ function Create() {
             title="Back"
             color="white"
           />
-          <h1 className="text-xl text-center font-semibold lg:font-bold lg:text-2xl grow">
+          <h1 className="text-xl text-center font-semibold lg:font-bold lg:text-2xl grow text-primary">
             Create Post
           </h1>
         </div>

@@ -15,7 +15,7 @@ function PostComponent({
         <img
           src={"/vite.svg"}
           alt=""
-          className="h-[40px] md:h-[75px] my-auto"
+          className="h-[50px] md:h-[75px] my-auto bg-third rounded lg:rounded-2xl p-2"
         />
         <div className="p-2 flex flex-col gap-2">
           <h1 className="text-md font-bold text-nowrap w-[75vw] max-w-[700px] overflow-hidden overflow-ellipsis">
