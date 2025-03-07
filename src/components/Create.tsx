@@ -2,6 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { FaAngleLeft } from "react-icons/fa";
 
 function Create() {
   const [title, setTitle] = useState("");
@@ -16,10 +20,20 @@ function Create() {
   }
 
   return (
-    <div className="h-screen flex flex-col justify-center">
-      <h1 className="text-xl text-center font-semibold lg:font-bold lg:text-2xl border-b p-1 lg:p-3 absolute top-0 w-full shadow-lg">
-        Create Post
-      </h1>
+    <div className="h-screen flex flex-col justify-between overflow-auto gap-4">
+      <div className="flex w-full border-b p-1 lg:p-3 shadow-lg">
+        <div className="flex justify-start gap-4 items-center max-w-[1280px] mx-auto w-full p-2 lg:p-4">
+          <FaAngleLeft
+            className="size-8 lg:size-10 cursor-pointer border rounded-full bg-primary hover:bg-gray-300"
+            onClick={() => navigate("/")}
+            title="Back"
+            color="white"
+          />
+          <h1 className="text-xl text-center font-semibold lg:font-bold lg:text-2xl grow">
+            Create Post
+          </h1>
+        </div>
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -54,18 +68,18 @@ function Create() {
               });
             });
         }}
-        className="mx-auto border rounded shadow-2xl max-w-[728px] w-[80%] flex flex-col items-center text-center gap-4 p-4"
+        className="bg-white mx-auto border-2 rounded-xl shadow-2xl max-w-[728px] w-[80%] flex flex-col justify-between items-center text-center gap-4 p-4"
       >
-        <input
+        <Input
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
-          className="block border rounded text-center p-2 w-full"
+          className="text-center font-semibold md:text-xl p-1 lg:p-2"
         />
-        <textarea
+        <Textarea
           name="body"
           id="body"
           value={body}
@@ -73,16 +87,20 @@ function Create() {
             setBody(e.target.value);
           }}
           maxLength={1000}
-          className="block roundeded border w-full h-[30vh] p-2 rounded"
+          className="min-h-[300px] lg:min-h-[400px] border w-full p-2 lg:p-4 rounded text-center md:text-lg"
           placeholder="Type the description of your post..."
         />
-        <button
-          type="submit"
-          className="border w-full hover:cursor-pointer rounded-2xl hover:bg-gray-200 shadow-2xl"
-        >
+        <Button type="submit" className="w-full rounded-2xl text-lg">
           Save
-        </button>
+        </Button>
       </form>
+      <Button
+        className="w-fit mx-auto lg:text-lg p-2 lg:px-4"
+        onClick={() => navigate("/")}
+        type="button"
+      >
+        Cancel
+      </Button>
       <ToastContainer hideProgressBar />
     </div>
   );
