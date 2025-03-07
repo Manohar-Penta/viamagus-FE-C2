@@ -53,7 +53,7 @@ function Posts() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col gap-3 lg:gap-4 w-full lg:w-full mt-2">
+      <div className="min-h-screen flex flex-col gap-3 lg:gap-4 w-full lg:w-full mt-2 px-2 lg:px-4">
         {data?.pages.map((page) => {
           return page.data.map(
             (post: { id: number; title: string; body: string }) => {

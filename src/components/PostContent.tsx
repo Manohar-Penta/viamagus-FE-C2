@@ -23,7 +23,6 @@ export function PostContent({
   const { data, isLoading } = useQuery({
     queryKey: ["post", id],
     queryFn: async () => {
-      console.log("Loading..", id);
       return await axios
         .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
         .then((res) => {
