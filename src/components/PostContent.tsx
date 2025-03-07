@@ -35,7 +35,7 @@ export function PostContent({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-[425px] bg-white">
+      <DialogContent className="sm:max-w-[425px] bg-secondary text-white">
         <DialogHeader>
           {isLoading || !data ? (
             <>
@@ -43,15 +43,17 @@ export function PostContent({
               <Skeleton className="w-full h-5 bg-gray-200 rounded " />
             </>
           ) : (
-            <DialogTitle className="text-primary">{data.title}</DialogTitle>
+            <DialogTitle className="text-white">{data.title}</DialogTitle>
           )}
           {isLoading || !data ? (
             <>
               <DialogDescription className="hidden"></DialogDescription>
-              <Skeleton className="w-full h-10 bg-gray-200 rounded" />
+              <Skeleton className="w-full h-10 bg-gray-100 rounded" />
             </>
           ) : (
-            <DialogDescription>{data.body}</DialogDescription>
+            <DialogDescription className="text-gray-200">
+              {data.body}
+            </DialogDescription>
           )}
         </DialogHeader>
         {isLoading || !data ? (
@@ -60,7 +62,7 @@ export function PostContent({
           <img
             src="/vite.svg"
             alt=""
-            className="h-[40vh] max-h-[200px] mx-auto border rounded-2xl w-full object-contain shadow-2xl"
+            className="h-[40vh] max-h-[200px] mx-auto border rounded-2xl w-full object-contain shadow-2xl bg-third"
           />
         )}
         {isLoading || !data ? (
