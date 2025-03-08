@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
@@ -7,13 +6,11 @@ import Create from "./components/Create.tsx";
 import Post from "./components/Post.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route index Component={App} />
-        <Route path="/create" Component={Create} />
-        <Route path="/post/:id" Component={Post} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route index Component={App} />
+      <Route path="/create" Component={Create} />
+      <Route path="/post/:id" Component={Post} />
+    </Routes>
+  </BrowserRouter>
 );
