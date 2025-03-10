@@ -25,14 +25,16 @@ function PostsNormal() {
 
   const [data, setData] = useState<any>();
   const [error, setError] = useState<string | null>(null);
-  const [status, setStatus] = useState<"pending" | "error" | "success">(
-    "pending"
-  );
+  const [status, setStatus] = useState<
+    "pending" | "error" | "success" | "init"
+  >("init");
 
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    if (status !== "init") return;
+    // console.log("useEffect");
     axios
       .get(
         `https://jsonplaceholder.typicode.com/posts?_start=${
@@ -50,7 +52,7 @@ function PostsNormal() {
       });
   }, [status]);
 
-  if (status === "pending")
+  if (status === "pending" || status === "init")
     return (
       <div>
         <PostsSkeleton />
@@ -89,7 +91,7 @@ function PostsNormal() {
           }
           onClick={() => {
             setError(null);
-            setStatus("pending");
+            setStatus("init");
             setOpen(false);
             navigate(`/?page=${page - 1}`);
           }}
@@ -104,7 +106,7 @@ function PostsNormal() {
           }
           onClick={() => {
             setError(null);
-            setStatus("pending");
+            setStatus("init");
             setOpen(false);
             setData([]);
             navigate(`/?page=${page + 1}`);
