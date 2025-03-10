@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Posts from "./components/Posts";
+// import Posts from "./components/Posts";
 import { Link } from "react-router";
+import PostsNormal from "./components/PostsNormal";
 
 function App() {
   const client = new QueryClient();
@@ -15,7 +16,7 @@ function App() {
           </button>
         </div>
       </div>
-      <Posts />
+      <PostsNormal />
     </QueryClientProvider>
   );
 }
